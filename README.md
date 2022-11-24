@@ -1,2 +1,2 @@
 # py-mcserver-installer
-a python mincraft installer
+a simple python mincraft installer
