@@ -1,6 +1,6 @@
 # py-mcserver-installer
 
-This python scipt is a simple minecraft server installer for windows
+This python file is a simple minecraft server installer for windows
 
 ## Usage
 
