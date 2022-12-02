@@ -1,21 +1,25 @@
 import requests
 import os
 import webbrowser
-#  
+import zipfile
+
 
 
 #path
 
 createpath = input('Input the path (C:/Users/example/Desktop/example/)')
 
-#createpath = 'C:/Users/wolfm/Desktop/installer/dl/paper/'
+#createpath = 'C:/Users/test/Desktop/installer/dl/test/'
 
 
 #names 
+ngrokzip = 'ngrok.zip'
 jarname = 'server.jar'
 batname = 'start.bat'
 eulaname = 'eula.txt'
 
+
+ngrokpath = createpath + ngrokzip
 jarpath = createpath + jarname
 batpath = createpath + batname
 eulapath = createpath + eulaname
@@ -25,9 +29,9 @@ eulapath = createpath + eulaname
 
 
 
-java8 = 'https://www.oracle.com/java/technologies/downloads/#java8'
-java11 = 'https://www.oracle.com/java/technologies/downloads/#java11'
-java17 = 'https://www.oracle.com/java/technologies/downloads/#java17'
+java8 = 'https://www.oracle.com/java/technologies/downloads/#java8-windows'
+java11 = 'https://www.oracle.com/java/technologies/downloads/#java11-windows'
+java17 = 'https://www.oracle.com/java/technologies/downloads/#java17-windows'
 
 #Path setup
 
@@ -50,6 +54,10 @@ print("Downloading... this could take a while")
 myfile = requests.get(url)
 open(jarpath , 'wb').write(myfile.content)
 value = input('Do you agree the Eula (true/false) :')
+if (value == 'false'):
+    (exit)
+
+
 if (value == 'true' ):
     url = 'https://weylyn.net/mcpyinstaller/eula.txt'
     myfile = requests.get(url)
@@ -76,13 +84,14 @@ if (value == 'true' ):
     if (value == 'true' ):   
         print("The Server will now Start you may need to start it yourself it it fails")
         os.system(batpath)
+        value = input('Want to download Ngrok for Portforwarting?(true/false):')
+        if (value == 'true' ):
+            print("downloading Ngrok")
+            url = 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip'
+            myfile = requests.get(url)
+            open(ngrokpath , 'wb').write(myfile.content)
+            print("unziping ngrok")
+            with zipfile.ZipFile(ngrokpath, 'r') as zip_ref:
+                zip_ref.extractall(createpath)
+            print ("ngrok unziped, open ngrok.exe and type ngrok tcp (your port)")
 
-
-
-
-else:
-        print(" Installer Stopped, Have a nice day")
-
-
-
-    
