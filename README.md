@@ -33,6 +33,7 @@ it will download the file
 Downloading... this could take a while
 
 ```
+
 ```bash
 Do you agree the Eula (true/false) :
 ```
@@ -41,3 +42,7 @@ you have to agree to the eula if you want to use it.
 
 
 It will ask you if the right java version is already installed please proceed the instalation
+
+
+
+It will download [Ngrok](https://ngrok.com/) to auto "portforward" if you like to do that
