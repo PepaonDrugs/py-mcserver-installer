@@ -11,6 +11,8 @@ Input the path (C:/Users/example/Desktop/example/):
 ```
 Enter here your path like "C:/Users/example/Desktop/example/" the / at the end is important
 
+###Please dont use directroys with spaces in it "c:/user/example/mc server/" this wont work
+
 it will then try to create the path if it doesn`t exist
 
 ```bash
